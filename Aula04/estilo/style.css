@@ -12,6 +12,7 @@ body {
 
 main {
     margin: auto;
+    margin-top: 10px;
     display: block;
     background-color: white;
     text-align: justify;
