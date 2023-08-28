@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="shortcut icon" href="imagem/javascript_icon.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <h2>Javascript Aula 06 <img class="bottom-image" src="imagem/javascript_icon.png" alt="Javascript"></h2>
+        
+        <h2>Formatando Strings</h2>
+        <p>Aprendi a usar template string<br>
+        Ex:<br>
+        'Eu estou aprendendo s' //não faz interpolação<br>
+        'Eu estou aprendendo' + s //usa concatenação<br>
+        `Eu estou aprendendo ${s}` //usa template string, repare na crase.</p>
+        <img class="estacionamento" src="imagem/Template-string.png" alt="Template-string">
+        <p>Outra maneira de formatar string é essas atribuições:<br>
+        Ex:<br>
+        var s = 'JavaScript'<br>
+        s.length //quantos caracteres a string tem<br>
+        s.toUpperCase() // tudo para 'MAIÚSCULAS'<br>
+        s.toLowerCase() // tudo para 'minúsculas'</p>
+        <img class="estacionamento" src="imagem/ex004.png" alt="ex004">
+        <p>Para formatar número temos esse exemplos nesta aula.</p>
+        <img class="estacionamento" src="imagem/FormatNumb.png" alt="FormatNumb">
+        
+    </main>
+    <footer>
+        Aulas do curso de Javascript do site <a href="http://www.cursoemvideo.com">www.cursoemvideo.com</a>
+    </footer>
+    <script>
+        var nome = window.prompt('Qual é seu nome?')
+        document.write(`Seu nome tem ${nome.length} letras.`)
+    </script>
+</body>
+</html>

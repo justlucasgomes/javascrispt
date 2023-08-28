@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 06</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="shortcut icon" href="imagem/javascript_icon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>JAVASCRIPT</h1>
+    </header>
+    <main>
+        <h2>Javascript Aula 06 <img class="bottom-image" src="imagem/javascript_icon.png" alt="Javascript"></h2>
+        <p>Vamos aprender Javascript</p>
+        <p>Sempre que aprender uma liguagem nova de programação, deseje:</p>
+        <p>Olá, mundo!</p>
+        <p>Pronto, já nos livramos da maldição.</p>
+        <h2>Tratamento de Dados</h2>
+        <p>No final desse documento HTML eu criei um script onde concentrei variáveis estudadas até aqui e as deixei algumas inativas como comentário, para base de conhecimento, outras vão interagir pois fazem parte da Aula 6.</p>
+        <p>Aprendi sobre como transformar uma string para um número, usando Number.parseInt(n) e Number.parseFloat.</p>
+        <img class="estacionamento" src="imagem/String-Numero.png" alt="String-Numero">
+        <p>Em seguida Guanabara explicou que posso usar somente number(n) caso eu decida que o próprio JavaScript decida o tipo de number.</p>
+        <img class="estacionamento" src="imagem/number.png" alt="number">
+        <p>Se eu quiser converter um número para uma String, posso utilizar:<br>
+        Ex:<br>
+        String(n) ou n.toString()</p>
+        <h2>Formatando Strings</h2>
+        <p>Aprendi a usar template string<br>
+        Ex:<br>
+        'Eu estou aprendendo s' //não faz interpolação<br>
+        'Eu estou aprendendo' + s //usa concatenação<br>
+        `Eu estou aprendendo ${s}` //usa template string, repare na crase.</p>
+        <img class="estacionamento" src="imagem/Template-string.png" alt="Template-string">
+        <p>Outra maneira de formatar string é essas atribuições:<br>
+        Ex:<br>
+        var s = 'JavaScript'<br>
+        s.length //quantos caracteres a string tem<br>
+        s.toUpperCase() // tudo para 'MAIÚSCULAS'<br>
+        s.toLowerCase() // tudo para 'minúsculas'</p>
+
+    </main>
+    <footer>
+        Aulas do curso de Javascript do site <a href="http://www.cursoemvideo.com">www.cursoemvideo.com</a>
+    </footer>
+    <script>
+        var n1 = Number.parseInt(window.prompt('Digite um número: '))
+        var n2 = Number.parseInt(window.prompt('Digite outro número: '))
+        var s = n1 + n2
+        window.alert(`A Soma entre os valores ${n1} e ${n2} é ${s}.`) //Template String
+        /*var nome = window.prompt('Qual é seu nome?')
+        window.alert('É um prazer te conhecer, '+nome+'.') //Concatenação
+        window.alert ('Minha primeira Mensagem!')
+        window.confirm('Está gostando de JS?')
+        window.prompt('Qual é seu nome?')*/
+        //Utilizamos barra barra para comentar uma unica linha.
+    </script>
+    <!-- Também aprendi o script window.confirm ('') -->
+</body>
+</html>
