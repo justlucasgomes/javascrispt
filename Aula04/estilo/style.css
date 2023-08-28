@@ -38,6 +38,11 @@ p {
     color: black;
 }
 
+img.estacionamento {
+    width: 490px;
+    align-items: center;
+}
+
 footer {
     margin-top: 40px;
     color: black;
