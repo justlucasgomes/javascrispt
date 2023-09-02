@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript09</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="shortcut icon" href="imagem/javascript_icon.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <h1>Javascript Aula 09 <img class="bottom-image" src="imagem/javascript_icon.png" alt="javascript"></h2>
+        
+        <h2>DOM Document Object Model</h3>
+        <p>Aqui vai meu resultado</p>
+        <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+        <div name="msg">Clique em mim.</div>
+        <img class="estacionamento" src="imagem/Arvore Dom.png" alt="Arvore">
+        <p>Imagem acima referente a árvore DOM, exemplo Guanabara aula 09 JavaScript.</p>
+        <p>Abaixo eu estou trazendo maneiras de selecionar os elementos:</p>
+        <img class="estacionamento" src="imagem/Selecionando.png" alt="Selecionando">
+        <p>Selecionando:<br>
+        Marca = getElementsByTagName(), consigo selecionar mais de um objeto ou [].<br>
+        ID = getElementByid(), posso identificar um paragrafo ou uma div.<br>
+        Nome = getElementsByName(), posso identificar mais de um objeto usando []<br>
+        Classe = getElementByClassName(), posso identificar mais de um objeto com name usando []<br>
+        Seletor = querySelector(),  ou querySelectorAll(), plural da coisa.<br></p>
+    </main>
+    <footer>
+        Aulas do curso de Javascript do site <a href="http://www.cursoemvideo.com">www.cursoemvideo.com</a>
+    </footer>
+    <script>
+        var d = window.document.getElementsByName('msg')[0]
+        //var d = window.querySelector('div#msg')
+        d.innerText = 'Olá, mundo!'
+        //Quando é ID # quando é Class .
+        //var Paragrafo1 = window.document.getElementsByTagName('p')[1]
+        //alert(Paragrafo1.innertext) //Pega apenas texto sem formatação
+        //alert(Paragrafo1.innerHTML) //Pega Texto formatado como no HTML
+        /*var nome = window.prompt('Qual é seu nome?')
+        document.write(`Seu nome tem ${nome.length} letras.`)*/
+    </script>
+</body>
+</html>
