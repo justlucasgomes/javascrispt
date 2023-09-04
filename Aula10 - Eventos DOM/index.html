@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript10</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="shortcut icon" href="imagem/javascript_icon.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <h1>Javascript Aula 10 <img class="bottom-image" src="imagem/javascript_icon.png" alt="javascript"></h2>
+        
+        <h2>Eventos DOM</h3>
+        <p>Evento é tudo que possa acontecer com Javascript em um elemento.</p>
+        <p>Veja este código com exemplos de  eventos DOM ao passar o mouse dentro da DIV esses são alguns, e existem muito mais.</p>
+        <img class="estacionamento" src="imagem/Eventos DOM.png" alt="Eventos">
+        <p>Veja exemplos de DOM na prática:</p>
+        <img class="estacionamento" src="imagem/Ex eventos.png" alt="ex">
+        <p>Resultado do Código:</p>
+        <div id="area" onclick="clicar">
+            Interaja...
+        </div>
+        <p>Agora faremos um exercício de soma.</p>
+        <h2>Somando Valores</h2>
+        <input type="number" name="txtn1" id="txtn1">
+        <p>+</p>
+        <input type="number" name="txtn2" id="txtn2">
+        <p>=</p>
+        <input type="button" value="Somar" onclick="somar()">
+        <div id="resultado">Resultado</div>
+        <p>Veja o resultado do codigo de soma</p>
+        <img class="estacionamento" src="imagem/CodSoma.png" alt="soma">
+    </main>
+    <footer>
+        Aulas do curso de Javascript do site <a href="http://www.cursoemvideo.com">www.cursoemvideo.com</a>
+    </footer>
+    <script>
+        var area = window.document.getElementById('area')
+        area.addEventListener('click', clicar)
+        area.addEventListener('mouseenter', entrar)
+        area.addEventListener('mouseout', sair)
+        function clicar() {
+            area.innerText = 'Clicou!'
+            area.style.background = 'red'
+        }
+        function entrar() {
+            area.innerText = 'Entrou!'
+        }
+        function sair() {
+            area.innerText = 'Saiu!'
+            area.style.background = 'green'
+        }
+        function somar() {
+            var txtn1 = document.getElementById('txtn1')
+            var txtn2 = document.getElementById('txtn2')
+            var n1 = Number(txtn1.value)
+            var n2 = Number(txtn2.value)
+            var soma = (n1 + n2)
+            var resultado = document.getElementById('resultado')
+            resultado.innerHTML = `A soma entre ${n1} e ${n2} é igual a ${soma}`
+        }
+    </script>
+</body>
+</html>
