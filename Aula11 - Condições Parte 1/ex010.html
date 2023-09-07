@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="shortcut icon" href="imagem/javascript_icon.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <h1>Sistema de Multas<img class="bottom-image" src="imagem/javascript_icon.png" alt="javascript"></h1>
+        Velocidade do carro: <input type="number" name="txtvel" id="txtvel"> Km/h
+        <input type="button" value="Verificar" onclick="calcularMulta()">
+        <div id="res"></div>
+    </main>
+    <footer>
+        Aulas do curso de Javascript do site <a href="http://www.cursoemvideo.com">www.cursoemvideo.com</a>
+    </footer>
+    <script>
+        function calcularMulta() {
+            var txtv = window.document.querySelector('input#txtvel');
+            var res = window.document.querySelector('div#res');
+            var vel = Number(txtv.value);
+
+            if (vel > 60) {
+                var percentual = ((vel - 60) / 60) * 100;
+                var multa;
+                var pontos;
+
+                if (percentual <= 20) {
+                    multa = 130.16;
+                    pontos = 4;
+                } else if (percentual <= 50) {
+                    multa = 195.23;
+                    pontos = 5;
+                } else {
+                    multa = 880.41;
+                    pontos = 7;
+                }
+
+                res.innerHTML = `Você está sendo multado por excesso de velocidade.<br>
+                                Velocidade atual: ${vel} Km/h<br>
+                                Multa: R$ ${multa.toFixed(2)}<br>
+                                Pontos na CNH: ${pontos}`;
+            } else {
+                res.innerHTML = `Sua velocidade atual é de ${vel} Km/h, dentro do limite permitido.`;
+            }
+        }
+    </script>
+</body>
+</html>

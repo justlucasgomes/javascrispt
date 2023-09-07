@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Nacionalidade</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="shortcut icon" href="imagem/javascript_icon.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <h1>Verificação de Nacionalidade<img class="bottom-image" src="imagem/javascript_icon.png" alt="javascript"></h1>
+        <label for="selecionarPais">Selecione seu país:</label>
+        <select id="selecionarPais">
+            <!-- Inserir aqui a lista de países dinamicamente usando JavaScript -->
+        </select>
+        <button onclick="verificarNacionalidade()">Confirmar</button>
+        <p id="resultado"></p>
+    </main>
+
+    <footer>
+        Aulas do curso de Javascript do site <a href="http://www.cursoemvideo.com">www.cursoemvideo.com</a>
+    </footer>
+
+    <script>
+        // Lista de países
+        var paises = [
+    { nome: "Afeganistão", continente: "Ásia" },
+    { nome: "África do Sul", continente: "África" },
+    { nome: "Albânia", continente: "Europa" },
+    { nome: "Alemanha", continente: "Europa" },
+    { nome: "Andorra", continente: "Europa" },
+    { nome: "Angola", continente: "África" },
+    { nome: "Antígua e Barbuda", continente: "América do Norte" },
+    { nome: "Arábia Saudita", continente: "Ásia" },
+    { nome: "Argélia", continente: "África" },
+    { nome: "Argentina", continente: "América do Sul" },
+    { nome: "Armênia", continente: "Ásia" },
+    { nome: "Austrália", continente: "Oceania" },
+    { nome: "Áustria", continente: "Europa" },
+    { nome: "Azerbaijão", continente: "Ásia" },
+    { nome: "Bahamas", continente: "América do Norte" },
+    { nome: "Bangladesh", continente: "Ásia" },
+    { nome: "Barbados", continente: "América do Norte" },
+    { nome: "Barein", continente: "Ásia" },
+    { nome: "Bélgica", continente: "Europa" },
+    { nome: "Belize", continente: "América do Norte" },
+    { nome: "Benin", continente: "África" },
+    { nome: "Bielo-Rússia", continente: "Europa" },
+    { nome: "Bolívia", continente: "América do Sul" },
+    { nome: "Bósnia e Herzegovina", continente: "Europa" },
+    { nome: "Botsuana", continente: "África" },
+    { nome: "Brasil", continente: "América do Sul" },
+    { nome: "Brunei", continente: "Ásia" },
+    { nome: "Bulgária", continente: "Europa" },
+    { nome: "Burkina Faso", continente: "África" },
+    { nome: "Burundi", continente: "África" },
+    { nome: "Butão", continente: "Ásia" },
+    { nome: "Cabo Verde", continente: "África" },
+    { nome: "Camarões", continente: "África" },
+    { nome: "Camboja", continente: "Ásia" },
+    { nome: "Canadá", continente: "América do Norte" },
+    { nome: "Catar", continente: "Ásia" },
+    { nome: "Cazaquistão", continente: "Ásia" },
+    { nome: "Chade", continente: "África" },
+    { nome: "Chile", continente: "América do Sul" },
+    { nome: "China", continente: "Ásia" },
+    { nome: "Chipre", continente: "Europa" },
+    { nome: "Colômbia", continente: "América do Sul" },
+    { nome: "Comores", continente: "África" },
+    { nome: "Coreia do Norte", continente: "Ásia" },
+    { nome: "Coreia do Sul", continente: "Ásia" },
+    { nome: "Costa do Marfim", continente: "África" },
+    { nome: "Costa Rica", continente: "América do Norte" },
+    { nome: "Croácia", continente: "Europa" },
+    { nome: "Cuba", continente: "América do Norte" },
+    { nome: "Dinamarca", continente: "Europa" },
+    { nome: "Djibuti", continente: "África" },
+    { nome: "Dominica", continente: "América do Norte" },
+    { nome: "Egito", continente: "África" },
+    { nome: "El Salvador", continente: "América do Norte" },
+    { nome: "Emirados Árabes Unidos", continente: "Ásia" },
+    { nome: "Equador", continente: "América do Sul" },
+    { nome: "Eritreia", continente: "África" },
+    { nome: "Eslováquia", continente: "Europa" },
+    { nome: "Eslovênia", continente: "Europa" },
+    { nome: "Espanha", continente: "Europa" },
+    { nome: "Estados Unidos", continente: "América do Norte" },
+    { nome: "Estônia", continente: "Europa" },
+    { nome: "Etiópia", continente: "África" },
+    { nome: "Fiji", continente: "Oceania" },
+    { nome: "Filipinas", continente: "Ásia" },
+    { nome: "Finlândia", continente: "Europa" },
+    { nome: "França", continente: "Europa" },
+    { nome: "Gabão", continente: "África" },
+    { nome: "Gâmbia", continente: "África" },
+    { nome: "Gana", continente: "África" },
+    { nome: "Geórgia", continente: "Europa" },
+    { nome: "Granada", continente: "América do Norte" },
+    { nome: "Grécia", continente: "Europa" },
+    { nome: "Guatemala", continente: "América do Norte" },
+    { nome: "Guiana", continente: "América do Sul" },
+    { nome: "Guiné", continente: "África" },
+    { nome: "Guiné Equatorial", continente: "África" },
+    { nome: "Guiné-Bissau", continente: "África" },
+    { nome: "Haiti", continente: "América do Norte" },
+    { nome: "Holanda", continente: "Europa" },
+    { nome: "Honduras", continente: "América do Norte" },
+    { nome: "Hungria", continente: "Europa" },
+    { nome: "Iémen", continente: "Ásia" },
+    { nome: "Ilhas Marshall", continente: "Oceania" },
+    { nome: "Ilhas Salomão", continente: "Oceania" },
+    { nome: "Índia", continente: "Ásia" },
+    { nome: "Indonésia", continente: "Ásia" },
+    { nome: "Irã", continente: "Ásia" },
+    { nome: "Iraque", continente: "Ásia" },
+    { nome: "Irlanda", continente: "Europa" },
+    { nome: "Islândia", continente: "Europa" },
+    { nome: "Israel", continente: "Ásia" },
+    { nome: "Itália", continente: "Europa" },
+    { nome: "Jamaica", continente: "América do Norte" },
+    { nome: "Japão", continente: "Ásia" },
+    { nome: "Jordânia", continente: "Ásia" },
+    { nome: "Kiribati", continente: "Oceania" },
+    { nome: "Kuwait", continente: "Ásia" },
+    { nome: "Laos", continente: "Ásia" },
+    { nome: "Lesoto", continente: "África" },
+    { nome: "Letônia", continente: "Europa" },
+    { nome: "Líbano", continente: "Ásia" },
+    { nome: "Libéria", continente: "África" },
+    { nome: "Líbia", continente: "África" },
+    { nome: "Liechtenstein", continente: "Europa" },
+    { nome: "Lituânia", continente: "Europa" },
+    { nome: "Luxemburgo", continente: "Europa" },
+    { nome: "Macedônia", continente: "Europa" },
+    { nome: "Madagáscar", continente: "África" },
+    { nome: "Malásia", continente: "Ásia" },
+    { nome: "Malauí", continente: "África" },
+    { nome: "Maldivas", continente: "Ásia" },
+    { nome: "Mali", continente: "África" },
+    { nome: "Malta", continente: "Europa" },
+    { nome: "Marrocos", continente: "África" },
+    { nome: "Maurícia", continente: "África" },
+    { nome: "Mauritânia", continente: "África" },
+    { nome: "México", continente: "América do Norte" },
+    { nome: "Micronésia", continente: "Oceania" },
+    { nome: "Moçambique", continente: "África" },
+    { nome: "Moldávia", continente: "Europa" },
+    { nome: "Mônaco", continente: "Europa" },
+    { nome: "Mongólia", continente: "Ásia" },
+    { nome: "Montenegro", continente: "Europa" },
+    { nome: "Namíbia", continente: "África" },
+    { nome: "Nauru", continente: "Oceania" },
+    { nome: "Nepal", continente: "Ásia" },
+    { nome: "Nicarágua", continente: "América do Norte" },
+    { nome: "Níger", continente: "África" },
+    { nome: "Nigéria", continente: "África" },
+    { nome: "Noruega", continente: "Europa" },
+    { nome: "Nova Zelândia", continente: "Oceania" },
+    { nome: "Omã", continente: "Ásia" },
+    { nome: "Paquistão", continente: "Ásia" },
+    { nome: "Palau", continente: "Oceania" },
+    { nome: "Panamá", continente: "América do Norte" },
+    { nome: "Papua Nova Guiné", continente: "Oceania" },
+    { nome: "Paraguai", continente: "América do Sul" },
+    { nome: "Peru", continente: "América do Sul" },
+    { nome: "Polônia", continente: "Europa" },
+    { nome: "Portugal", continente: "Europa" },
+    { nome: "Quênia", continente: "África" },
+    { nome: "Quirguistão", continente: "Ásia" },
+    { nome: "Quiribati", continente: "Oceania" },
+    { nome: "Reino Unido", continente: "Europa" },
+    { nome: "República Centro-Africana", continente: "África" },
+    { nome: "República Dominicana", continente: "América do Norte" },
+    { nome: "República Tcheca", continente: "Europa" },
+    { nome: "Romênia", continente: "Europa" },
+    { nome: "Ruanda", continente: "África" },
+    { nome: "Rússia", continente: "Europa" },
+    { nome: "Salvador", continente: "América do Norte" },
+    { nome: "Samoa", continente: "Oceania" },
+    { nome: "Santa Lúcia", continente: "América do Norte" },
+    { nome: "São Cristóvão e Nevis", continente: "América do Norte" },
+    { nome: "São Marinho", continente: "Europa" },
+    { nome: "São Tomé e Príncipe", continente: "África" },
+    { nome: "São Vicente e Granadinas", continente: "América do Norte" },
+    { nome: "Seicheles", continente: "África" },
+    { nome: "Senegal", continente: "África" },
+    { nome: "Serra Leoa", continente: "África" },
+    { nome: "Síria", continente: "Ásia" },
+    { nome: "Somália", continente: "África" },
+    { nome: "Sri Lanka", continente: "Ásia" },
+    { nome: "Suazilândia", continente: "África" },
+    { nome: "Sudão", continente: "África" },
+    { nome: "Sudão do Sul", continente: "África" },
+    { nome: "Suécia", continente: "Europa" },
+    { nome: "Suíça", continente: "Europa" },
+    { nome: "Suriname", continente: "América do Sul" },
+    { nome: "Tailândia", continente: "Ásia" },
+    { nome: "Taiwan", continente: "Ásia" },
+    { nome: "Tajiquistão", continente: "Ásia" },
+    { nome: "Tanzânia", continente: "África" },
+    { nome: "Timor-Leste", continente: "Ásia" },
+    { nome: "Togo", continente: "África" },
+    { nome: "Tonga", continente: "Oceania" },
+    { nome: "Trinidad e Tobago", continente: "América do Norte" },
+    { nome: "Tunísia", continente: "África" },
+    { nome: "Turcomenistão", continente: "Ásia" },
+    { nome: "Turquia", continente: "Ásia" },
+    { nome: "Tuvalu", continente: "Oceania" },
+    { nome: "Ucrânia", continente: "Europa" },
+    { nome: "Uganda", continente: "África" },
+    { nome: "Uruguai", continente: "América do Sul" },
+    { nome: "Uzbequistão", continente: "Ásia" },
+    { nome: "Vanuatu", continente: "Oceania" },
+    { nome: "Vaticano", continente: "Europa" },
+    { nome: "Venezuela", continente: "América do Sul" },
+    { nome: "Vietnã", continente: "Ásia" },
+    { nome: "Zâmbia", continente: "África" },
+    { nome: "Zimbábue", continente: "África" },
+    { nome: "Outro", continente: "Desconhecido" }
+];
+
+
+        // Função para preencher a lista de países no elemento select
+        function preencherListaPaises() {
+            var selectPais = document.getElementById("selecionarPais");
+
+            for (var i = 0; i < paises.length; i++) {
+                var option = document.createElement("option");
+                option.text = paises[i].nome;
+                selectPais.add(option);
+            }
+        }
+
+        // Função para verificar a nacionalidade e o continente
+        function verificarNacionalidade() {
+            var selectPais = document.getElementById("selecionarPais");
+            var resultado = document.getElementById("resultado");
+            var paisSelecionado = selectPais.value;
+
+            for (var i = 0; i < paises.length; i++) {
+                if (paises[i].nome === paisSelecionado) {
+                    var continente = paises[i].continente;
+                    resultado.textContent = "Você é " + (paisSelecionado === "Brasil" ? "brasileiro" : "estrangeiro") + " do continente " + continente + ".";
+                    return;
+                }
+            }
+
+            // Se o país não for encontrado na lista, exibe uma mensagem padrão
+            resultado.textContent = "País não encontrado na lista.";
+        }
+        // Chama a função para preencher a lista de países quando a página carregar
+        window.onload = preencherListaPaises;
+    </script>
+</body>
+</html>
