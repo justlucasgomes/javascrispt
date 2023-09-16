@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgb(108, 192, 243);
+    font: normal 15pt Arial;
+    text-align: center;
+}
+
+header {
+    color: white;
+}
+
+section {
+    background-color: white; 
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto; /*Para Centralizar*/
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.466);
+}
+
+footer > p> a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.redondo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
