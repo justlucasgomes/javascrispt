@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Exercício</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Título</h1>
+        </header>
+        <section>
+            <div>
+                Testando...
+            </div>
+            <div>
+
+            </div>
+            <h2>O que estudar?</h2>
+            <p>Functions:<br>
+                Arrow Functions<br> 
+                Callbacks<br>
+                Funções Anônimas<br>
+                iife<br>
+                JavaScript Funcional<br>
+                -----<br>
+                Objetos (orientação a objetos)<br>
+                Modularização<br>
+                RegEx (Regular Expressions)<br>
+                JSON<br>
+                AJAX<br>
+                NodeJS<br>
+            </p>
+            <h2>O que é um Object?</h2>
+            <p>OBJECTS são CONTAINERS de PROPRIEDADES e MÉTODOS.<br>
+               OBJECTS são VARIÁVEIS COMPOSTAS, assim como os ARRAYS.<br>
+               <br>
+            <strong>Array syntax:</strong><br>
+            let identificador = [valor, valor, valor]<br>
+                                  0        1        2<br>
+                                  <br>
+            <strong>Object syntax:</strong><br>
+            let identificador = {nome:valor, nome:valor, nome:valor}<br>
+
+            <strong>Diferenças:</strong><br>
+            Para declarar um ARRAY usa-se COLCHETES [ ]<br>
+            Para declarar um OBJECT usa-se CHAVES { }<br>
+            </p>
+            <p>Nos ARRAYS, os ELEMENTOS (conjunção de: posição e valor) são ACESSADOS por seus ÍNDICES (0, 1, 2).,<br>
+
+                Nos OBJECTS, as PROPRIEDADES (conjunção de: nome e valor) são ACESSADAS por suas KEYS (nome1, nome2, nome3).<br>
+                
+                  Como fazer este ACESSO (rode este código):<br>
+                
+                const pessoas = {nome1: "rodolfo", nome2: "rogerin"}<br> 
+                const idades = [20, 35]<br>
+                <br>
+                <strong>Há 2 maneiras de acessar as PROPRIEDADES de um OBJETO.</strong></p>
+                <p>1- syntax: objectName.propertyName
+                    console.log(`O ${pessoas.nome1} tem 20 anos de idade e o ${pessoas.nome2} têm 35.`)</p>
+                <p>2- syntax: objectName["propertyName"]
+                    console.log(`O ${pessoas["nome1"]} tem 20 anos de idade e o ${pessoas["nome2"]} têm 35.`)</p>
+                <p>acessando os ELEMENTOS de um ARRAY através de seus ÍNDICES: <br>
+                    console.log(`O rodolfo tem ${idades[0]} anos de idade e o rogerin têm ${idades[1]}.`)</p>
+                <p>pessoas  é um OBJETO;  <br>
+                    nome1 e nome2  são as PROPRIEDADES do OBJETO  pessoas; <br>
+                    "rodolfo" e "rogerin"  são os VALORES das PROPRIEDADES  nome1 e nome2  , respectivamente.</p>
+                <p>Os OBJETOS podem também ter MÉTODOS. <br>
+                    Um MÉTODO é uma FUNÇÃO que é ARMAZENADA como PROPRIEDADE de um OBJETO. Ou seja, MÉTODOS são AÇÕES que podem ser EXECUTADAS em OBJETOS.<br>
+                </p>
+                <p> Exemplo (rode este código):</p>
+                <p>const person = {<br>
+                    fName: "Elon", <br>
+                    lName: "Musk", <br>
+                    fullName() { <br>
+                        return `${this.fName} ${this.lName}` <br>
+                    } <br>
+                } <br>
+                console.log(person.fullName())</p>
+                <p>this  é uma keyword que refere-se a um OBJETO. <br>
+                Portanto,  this.fName  refere-se à propriedade  fName  DESTE (this) OBJETO (person).
+                </p>
+                <h2> O que é  this  ?</h2>
+                <p>this  é uma keyword que refere-se a um OBJETO.  this  NÃO É uma VARIÁVEL. Você NÃO PODE MUDAR o VALOR de  this  . <br>
+                    Mas QUAL objeto  this  refere-se? Isto dependerá de COMO esta keyword foi utilizada ou chamada:<br>    
+                    Em um MÉTODO,  this  refere-se ao OBJETO (exemplo anterior).<br>
+                    Sozinha,  this  refere-se ao OBJETO GLOBAL.<br>
+                    Em uma FUNÇÃO,  this  refere-se ao OBJETO GLOBAL.<br>
+                    Em uma FUNÇÃO, em modo estrito (*strict mode),  this  é undefined.<br>
+                    Em um EVENTO,  this  refere-se ao ELEMENTO que RECEBEU o EVENTO.<br>
+                    Métodos como  call(),  apply()  e  bind()  , podem referir  this  a QUALQUER OBJETO.
+                    </p>
+                <h2>O que é Strict Mode?</h2>
+                <p>O comando:  "use strict"  , indica que um código DEVE SER EXECUTADO em Strict Mode, modo estrito. Este pode ser utilizado no INÍCIO do SCRIPT, agindo GLOBALMENTE, ou DENTRO de uma FUNÇÃO ESPECÍFICA, agindo LOCALMENTE. <br>
+                    Este modo serve para REVELAR MÁS PRÁTICAS de ESCRITA, SYNTAX, ao lançar NOVAS MENSAGENS de ERRO no CONSOLE do NAVEGADOR, que antes passariam desapercebidas. Portanto, este modo auxilia na escrita de um código mais "clean", previnindo que você atribua um valor à uma variável antes de declará-la, por exemplo (rode este código):</p>
+                <p>// SEM UTILIZAR o Strict Mode: <br>
+                    function serHumano() { <br>
+                        return nome = "rodolfo" // atribuindo um valor à uma variável SEM DECLARÁ-LA. <br>
+                    } <br>
+                    console.log(serHumano()) // "rodolfo" foi exibido normalmente sem mensagens de erro. <br>
+                    <br>
+                    console.log('-------')<br>
+                    <br>
+                    // UTILIZANDO o Strict Mode:<br>
+                    function pessoa() {<br>
+                        "use strict"  // caso APAGUE este "use strict", o código NÃO DARÁ ERRO, mesmo que este exista.<br>
+                        return sobrenome = "da Silva"  // atribuindo um valor à uma variável SEM DECLARÁ-LA. <br>
+                    }<br>
+                    console.log(pessoa()) // ReferenceError: sobrenome is not defined<br>
+                    </p>
+        </section>
+        <footer>
+            <p><a href="www.cursoemvideo.com">@CursoemVideo</a></p>
+        </footer>
+    </main>
+    <script src="objeto01.js"></script>
+</body>
+</html>
